@@ -1,0 +1,92 @@
+<h1>Welcome to Angular World !</h1>
+
+<p>The title is {{title}}</p>
+<p>The author is {{authorFirstName}}</p>
+<p>The author full name is is {{getFullName()}}</p>
+<p>The boy's name is {{obj.name}} and his age is {{obj.age}}</p>
+<p>Array values are {{arry}} </p>
+<p>Array 1st element is {{arry[0]}} </p>
+<p>Array 2nd element is {{arry[1]}} </p>
+<p>Array length is {{arry.length}} </p>
+<p>10 + 10 is :{{10+10}} </p>
+<p>add variables a + b is {{a+b}} </p>
+<p>The url of the site is {{siteUrl}}</p>
+<!--  Property 'window' does not exist on type 'AppComponent'. -->
+<!-- <p>window.location.href is {{ window.location.href}}</p> -->
+<h1>Angular Components</h1>
+<app-user-list></app-user-list>
+<app-login></app-login>
+<app-signup></app-signup>
+
+<h1>Using function onclick button</h1>
+<p> onclick button function </p>
+<button (click)="getFullNameAlert()">Click Me</button>
+<p> pass variable into function "var authorFirstName = Owais bhai" </p>
+<button (click)="getMyNameFromVar(authorFirstName)">Click Me</button>
+<p> pass value/string into function, should alert 'Owais Janu' </p>
+<button (click)="getMyNameFromValue('Owais Janu')">Click Me</button><br />
+<p> Onkey up message is printed in the console.log 'key up is pressed' </p>
+<input type="text" (keyup)="myEvent('key up is pressed')" />
+
+<p> Onkey message is taken from textbox and printed in the console when keyup event happens</p>
+<input type="text" #txtMsg (keyup)="myEvent(txtMsg.value)" />
+
+<p> Onkey message is taken from textbox and printed in the console when keyup.enter event happens</p>
+<input type="text" #txtMsgEnter (keyup.enter)="myEvent(txtMsgEnter.value)" />
+
+<p> Get value from textbox on enter keypress</p>
+<input type="text" #txtMsg2 (keyup)="myEvent($any($event.target).value)" />
+
+<p> Get value from textbox on enter keypress, assign it to p tag</p>
+<input type="text" #txtBx (keyup)="assignValToPtag($any($event.target).value)" />
+<br /><br>
+
+<div style="border:1px solid rgb(191, 223, 11);">
+    <p>{{txtBxVal}}</p>
+</div>
+
+<h1>Property Binding in Angular</h1>
+<input type="text" [value]=authorFirstName />
+<input type="text" [value]="authorLastName" />
+<p>String interpolation</p>
+<input type="text" value={{authorLastName}} />
+
+<h1>Property Binding vs Interpolation in Angular</h1>
+<input type="text" [disabled]="disabledBox" [value]="authorLastName" /> <br><br>
+<input type="text" disabled={{disabledBox}} value={{authorLastName}} /><br><br>
+<button (click)="enableTxtBox()">Enable textbox</button>
+
+<h1>#12 Conditions in Angular</h1>
+<hr>
+<ol>
+    <li>If Conditions</li>
+    <li>if...else Conditions</li>
+    <li>condition with strings</li>
+    <li>elseif condition</li>
+    <li>condition with Property binding</li>
+</ol>
+
+<h1>1) If Conditions > If variable is true then display h2 tag</h1>
+<div class="divHr"></div>
+<p #h2IfShow *ngIf="h2IfShow">
+    If block
+    I'm visible because h2IfShow variable is true inside app.component.ts
+</p>
+
+<h1>2) if...else Conditions > If variable is true then display if block else show else block</h1>
+<div class="divHr"></div>
+<p #h2IfShow *ngIf="h2IfShow else secondInfo" style="color:rgb(191, 223, 11);">
+    If block
+    I'm visible because h2IfShow variable is true inside app.component.ts
+</p>
+<ng-template #secondInfo>
+    <p style="color: red;">Else block</p>
+</ng-template>
+
+<p #h2IfShow *ngIf="h2IfShowStr == 'yes' else ThirdInfo" style="color:rgb(191, 223, 11);">
+    If block
+    I'm visible because h2IfShowStr == 'yes'
+</p>
+<ng-template #ThirdInfo>
+    <p style="color: red;">Else block</p>
+</ng-template>

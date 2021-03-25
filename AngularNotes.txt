@@ -1,0 +1,39 @@
+node -v
+nmp -v
+npm install -g @angular/cli
+
+Check angular version
+
+navigate to the drive/folder and create a new angialr project there
+ng new ngApp-1
+
+nav into the new prject to check the angular version
+ng --version
+open the newly created porject into the code editor
+code .
+
+ng serve > start local dev server
+
+create new component Angular CLI
+ng g c Userlist
+
+create new module
+ng g m users
+
+create a component inside another module
+ng g c Userlist > this will create the compoenent inside the app-root module
+ng g c users/logic
+
+
+https://www.youtube.com/watch?v=pCewaWYNnu4
+15:19
+
+
+
+///////Angular Pangas
+
+Property 'value' does not exist on type 'EventTarget'
+https://github.com/angular/angular/issues/35293
+
+
+
